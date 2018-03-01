@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const heading = <h1>This is part1</h1>;
-const detail = <div>
+const part1 = <h1>This is part1</h1>;
+const part2 = <div>
   <p>This is first paragraph for part2</p>
   <p>This is second paragraph for part2</p>
 </div>
@@ -82,42 +82,14 @@ class NestedFunctionClass extends React.Component{
   }
 }
 
-ReactDOM.render(
-  heading,
-  document.getElementById('part1')
-);
+ReactDOM.render(part1, document.getElementById('part1'));
+ReactDOM.render(part2, document.getElementById('part2'));
+ReactDOM.render(part3, document.getElementById('part3'));
+ReactDOM.render(part4, document.getElementById('part4'));
+ReactDOM.render(part5, document.getElementById('part5'));
+ReactDOM.render(part6, document.getElementById('part6'));
 
-ReactDOM.render(
-  detail,
-  document.getElementById('part2')
-);
-
-ReactDOM.render(
-  part3,
-  document.getElementById('part3')
-);
-
-ReactDOM.render(
-  part4,
-  document.getElementById('part4')
-);
-
-ReactDOM.render(
-  part5,
-  document.getElementById('part5')
-);
-
-ReactDOM.render(
-  part6,
-  document.getElementById('part6')
-);
-
-ReactDOM.render(
-  Part7,
-  document.getElementById('part7')
-);
-
-ReactDOM.render(
-  Part8,
-  document.getElementById('part8')
-);
+ReactDOM.render(<Part7 />, document.getElementById('part7'));
+ReactDOM.render(<Part8 />,  document.getElementById('part8'));
+ReactDOM.render(<Part9 />,  document.getElementById('part9'));
+ReactDOM.render(<NestedFunctionClass />,  document.getElementById('part10'));
