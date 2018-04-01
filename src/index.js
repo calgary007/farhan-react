@@ -3,6 +3,286 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// Part 21-30
+// Part 21: Create a Stateful Component
+class StatefullComponent extends React.Component {
+  constructor(props) {
+		super(props);
+		this.state = {
+      name: "Farhan",
+      company: "TCS"
+    }
+
+	}
+  render() {
+    return (
+	    <div>
+	    	<h3>My Name is :{this.state.name}</h3>
+        <p>I work for {this.state.company}</p>
+	    </div>
+    );
+  }
+};
+
+// Now lets render it
+ReactDOM.render(<StatefullComponent />, document.getElementById('part21'));
+
+// Part 22: Render State in the User Interface
+class StateinUserInterface extends React.Component {
+  constructor(props) {
+		super(props);
+		this.state = {
+      name: "Farhan",
+      company: "TCS"
+    }
+
+	}
+  render() {
+    return (
+	    <div>
+	    	<h3>{this.state.name}</h3>
+	    </div>
+    );
+  }
+};
+// Now lets render it
+ReactDOM.render(<StateinUserInterface />, document.getElementById('part22'));
+// Part 23: Render State in the User Interface Another Way
+class StateAnotherWay extends React.Component {
+  constructor(props) {
+		super(props);
+		this.state = {
+      name: "Farhan",
+      company: "TCS"
+    }
+
+	}
+  render() {
+    const name = this.state.name
+    return (
+	    <div>
+	    	<h3>{name}</h3>
+	    </div>
+    );
+  }
+};
+
+// Now lets render it
+ReactDOM.render(<StateinUserInterface />, document.getElementById('part23'));
+
+//Part 24: Set State with this.setState
+class StateThisStateChallenge extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: 'Top Secret'
+		};
+		this.click = this.click.bind(this);
+	}
+	click() {
+		// change code below this line
+    this.setState({
+      name: 'Farhan'
+    })
+	  // change code above this line
+	}
+	render() {
+  	return (
+	    <div>
+        <button onClick = {this.click}>Click me to see my name</button>
+        <h1>{this.state.name}</h1>
+	    </div>
+    );
+  }
+};
+
+
+// Now lets render it
+ReactDOM.render(<StateThisStateChallenge />, document.getElementById('part24'));
+
+//Part 25: Bind 'this' to a Class Method
+class BindThisToClass extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			itemCount: 0
+		};
+    this.addItem = this.addItem.bind(this);
+	}
+	addItem() {
+		this.setState({
+			itemCount: this.state.itemCount + 1
+		});
+	}
+	render() {
+  	return (
+	    <div>
+        <button onClick = {this.addItem}>Click Me</button>
+        <h1>Current Item Count: {this.state.itemCount}</h1>
+	    </div>
+    );
+  }
+};
+// Now lets render it
+ReactDOM.render(<BindThisToClass />, document.getElementById('part25'));
+
+//Part 26: Bind 'this' with an ES6 Arrow Function
+class BindThisToArrow extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+      message: 'Hello!'
+    };
+	}
+	setMessage = () => {
+    this.setState({
+      message: 'Goodbye!'
+    })
+  }
+  render() {
+  	return (
+	    <div>
+        <button onClick = {this.setMessage}>Click Me</button>
+        <h1>{this.state.message}</h1>
+	    </div>
+    );
+  }
+};
+// Now lets render it
+ReactDOM.render(<BindThisToArrow />, document.getElementById('part26'));
+
+//Part 27: Use State to Toggle an Element
+class ToggleVisibility extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			visibility: false
+		};
+    //this.toggleVisibility = this.toggleVisibility.bind(this);
+	}
+	toggleVisibility = () => {
+    this.state.visibility ? this.setState ({visibility: false}) : this.setState ({visibility: true})
+  }
+
+	render() {
+		if (this.state.visibility) {
+	  	return (
+		    <div>
+	        <button onClick = {this.toggleVisibility}>Click Me</button>
+	        <h1>Now you see me!</h1>
+		    </div>
+	    );
+  	} else {
+  		return (
+		    <div>
+	        <button onClick = {this.toggleVisibility}>Click Me</button>
+		    </div>
+	    );
+  	}
+  }
+};
+// Now lets render it
+ReactDOM.render(<ToggleVisibility />, document.getElementById('part27'));
+
+//Part 28: Write a Simple Counter
+class SimpleCounter extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			count: 0
+		};
+	}
+  reset = () => {
+    this.setState({
+    	count: 0
+  	});
+  }
+	increment = () => {
+    this.setState({
+    	count: this.state.count + 1
+  	});
+  }
+  decrement = () => {
+    this.setState({
+    	count: this.state.count - 1
+  	});
+  }
+	render() {
+  	return (
+	    <div>
+        <button className='inc' onClick={this.increment}>Increment!</button>
+        <button className='dec' onClick={this.decrement}>Decrement!</button>
+        <button className='reset' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+	    </div>
+    );
+  }
+};
+// Now lets render it
+ReactDOM.render(<SimpleCounter />, document.getElementById('part28'));
+
+//Part 29: Create a Controlled Input
+class ControlledInput extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			input: ''
+		};
+	}
+	// change code below this line
+	handleInput = (e) => {
+    this.setState({
+      input: e.target.value
+    });
+  }
+	// change code above this line
+	render() {
+  	return (
+	    <div>
+        <input onChange={this.handleInput} value={this.state.input} />
+        <p>Input: {this.state.input}</p>
+	    </div>
+    );
+  }
+};
+// Now lets render it
+ReactDOM.render(<ControlledInput />, document.getElementById('part29'));
+
+//Part 30: Create a Controlled Form
+class MyForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			input: '',
+			submit: ''
+		};
+	}
+	handleChange = (event) => {
+		this.setState({
+			input: event.target.value
+		});
+	}
+	handleSubmit = (event) => {
+		event.preventDefault()
+    this.setState({
+      submit: this.state.input
+    });
+	}
+	render() {
+  	return (
+  		<div>
+		    <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleChange} value={this.state.input}/>
+	        <button type='submit'>Submit!</button>
+		    </form>
+        <h1>{this.state.submit}</h1>
+		  </div>
+    );
+  }
+};
+// Now lets render it
+ReactDOM.render(<MyForm />, document.getElementById('part30'));
+
 // Part - 11: Compose React Components
 // lets do some deep nesting 
 
