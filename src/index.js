@@ -7,9 +7,6 @@ import './index.css';
 // lets do some deep nesting 
 
 class Mammals extends React.Component {
-	constructor(props) {
-	  super(props);
-  }
   render() {
     return (
       <div>
@@ -26,9 +23,6 @@ class Mammals extends React.Component {
 };
 
 class Reptiles extends React.Component {
-	constructor(props) {
-	  super(props);
-  }
   render() {
     return (
       <div>
@@ -64,9 +58,6 @@ const Vegetarians = () => {
 }
 
 class Animals extends React.Component{
-  constructor(props) {
-    super(props);
-  }
   render() {
     return(
       <div>
@@ -140,10 +131,6 @@ const HeadingFunction = (props) =>{
 }
 
 class HeadingClass extends React.Component{
-  constructor(props) {
-		super(props);
-  }
-
   render (){
     const data = {
       text: "Some Heading Text",
@@ -171,11 +158,8 @@ const ArrayExample = (props) =>{
 }
 
 class ArrayExampleClass extends React.Component{
-  constructor(props) {
-    super(props);
-  }
   render (){
-    {/*this time rather than defining a constant we will pass it directly*/}
+    /*this time rather than defining a constant we will pass it directly*/
     return(
       <ArrayExample data={['Farhan', 'Tiger', 'Hawk', 'Shark']} />
     )
@@ -220,9 +204,6 @@ ReactDOM.render(<HeadingFunctionWithDefaultLevel level={4} text="I won't render 
 //lets set a prop in a class and then access it in other class
 
 class IwillTakeValue extends React.Component{
-  constructor(props){
-    super(props );
-  }
   render() {
     return(
       <div>I was passed this date value <b>{this.props.date}</b> from another place</div>
@@ -231,9 +212,6 @@ class IwillTakeValue extends React.Component{
 }
 
 class IwillPassValue extends React.Component{
-  constructor(props){
-    super(props);
-  }
   render(){
     return(
       <IwillTakeValue date={Date()} />
@@ -252,8 +230,6 @@ const covered = "This was covered in previous exercises"
 
 //lets render it
 ReactDOM.render(covered, document.getElementById('part20'))
-
-
 
 
 const part1 = <h1>This is part1</h1>;
@@ -281,9 +257,6 @@ const Part7 = function () {
 };
 
 class Part8 extends React.Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div>It returns this div</div>
@@ -302,9 +275,6 @@ const ListComponent = () => {
 }
 
 class Part9 extends React.Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div>
@@ -323,9 +293,6 @@ const NestedFunction = () => {
 };
 
 class NestedFunctionClass extends React.Component{
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
